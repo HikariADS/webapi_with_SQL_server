@@ -1,0 +1,81 @@
+2025-11-02 22:17:18.649 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-02 22:17:18.728 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-11-02 22:17:18.942 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-02 22:17:19.094 +07:00 [INF] Now listening on: http://localhost:5170
+2025-11-02 22:17:19.097 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-02 22:17:19.099 +07:00 [INF] Hosting environment: Development
+2025-11-02 22:17:19.100 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-11-02 22:17:37.747 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-11-02 22:17:37.776 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-11-02 22:17:37.836 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 500 null application/json 90.0476ms
+2025-11-02 22:17:37.888 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/favicon.ico - null null
+2025-11-02 22:17:37.893 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-11-02 22:17:37.895 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/favicon.ico - 500 null application/json 7.9225ms
+2025-11-02 22:17:53.797 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-11-02 22:17:53.801 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-11-02 22:17:53.802 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 500 null application/json 4.9931ms
+2025-11-02 22:17:53.836 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/favicon.ico - null null
+2025-11-02 22:17:53.839 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-11-02 22:17:53.841 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/favicon.ico - 500 null application/json 5.4391ms
+2025-11-02 22:19:18.109 +07:00 [INF] Application is shutting down...
+2025-11-02 22:23:38.329 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-02 22:23:38.414 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-11-02 22:23:38.591 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-02 22:23:38.687 +07:00 [INF] Now listening on: http://localhost:5170
+2025-11-02 22:23:38.689 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-02 22:23:38.690 +07:00 [INF] Hosting environment: Development
+2025-11-02 22:23:38.690 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-11-02 22:23:45.246 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-11-02 22:23:45.273 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-11-02 22:23:45.277 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 404 0 null 31.9973ms
+2025-11-02 22:23:45.285 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/api/products, Response status code: 404
+2025-11-02 22:23:48.103 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-11-02 22:23:48.107 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 404 0 null 4.4435ms
+2025-11-02 22:23:48.110 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/api/products, Response status code: 404
+2025-11-02 22:23:51.369 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-11-02 22:23:51.373 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 404 0 null 3.4181ms
+2025-11-02 22:23:51.375 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/api/products, Response status code: 404

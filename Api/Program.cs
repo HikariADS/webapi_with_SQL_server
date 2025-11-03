@@ -1,40 +1,103 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Serilog;
 using WebApi_With_SQL_Server.Infrastructure.Persistence;
 using WebApi_With_SQL_Server.Middleware;
 using WebApi_With_SQL_Server.Application.IServices;
 using WebApi_With_SQL_Server.Application.Services;
 using WebApi_With_SQL_Server.Application.IRepositories;
 using WebApi_With_SQL_Server.Infrastructure.Repositories;
+using Microsoft.Extensions.Options;
+using WebApi_With_SQL_Server.Api.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.Extensions.FileProviders;
+
+// ...existing code...
+
+// ---------------------------
+// 1️⃣ Cấu hình Serilog Logging
+// ---------------------------
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("Infrastructure/Logs/error-.log", rollingInterval: RollingInterval.Day)
+    .WriteTo.Console()
+    .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseSerilog();
 
+// ---------------------------
+// 2️⃣ Đăng ký các services
+// ---------------------------
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen(options =>
+// API Versioning
+builder.Services.AddVersionedApiExplorer(options =>
 {
-    options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
-    {
-        Title = "Product Management API",
-        Version = "v1",
-        Description = "API CRUD thực với SQL Server, Repository Pattern và AutoMapper"
-    });
+    options.GroupNameFormat = "'v'VVV";
+    options.SubstituteApiVersionInUrl = true;
 });
 
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ReportApiVersions = true;
+    options.ApiVersionReader = ApiVersionReader.Combine(
+        new UrlSegmentApiVersionReader(),
+        new HeaderApiVersionReader("api-version")
+    );
+});
+
+// Swagger - register only ONCE the ConfigureSwaggerOptions implementation
+builder.Services.AddSwaggerGen();
+builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>(); // keep this
+// removed: builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
+
+// SQL Server
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+// Repositories & Services
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
 
+// AutoMapper
 builder.Services.AddAutoMapper(typeof(Program));
 
+// File Browser
+builder.Services.AddDirectoryBrowser();
+
+// Build app
 var app = builder.Build();
 
+// ---------------------------
+// 3️⃣ Configure Middleware Pipeline
+// ---------------------------
+
+// Exception Handling
 app.UseMiddleware<ExceptionMiddleware>();
 
+// Static Files
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "wwwroot")),
+    RequestPath = ""
+});
+
+app.UseDirectoryBrowser(new DirectoryBrowserOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "wwwroot", "images")),
+    RequestPath = "/images"
+});
+
+// Database Seeding
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -42,14 +105,24 @@ using (var scope = app.Services.CreateScope())
     AppDbSeeder.Seed(dbContext);
 }
 
+// Swagger UI
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
+    app.UseSwaggerUI(options =>
     {
-        c.DocumentTitle = "Product API Documentation";
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
-        c.RoutePrefix = "CRUD";
+        var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+
+        foreach (var description in provider.ApiVersionDescriptions)
+        {
+            options.SwaggerEndpoint(
+                $"/swagger/{description.GroupName}/swagger.json",
+                $"API {description.GroupName.ToUpper()}"
+            );
+        }
+
+        options.DocumentTitle = "Web API Documentation";
+        options.RoutePrefix = "CRUD";
     });
 }
 else
@@ -57,7 +130,12 @@ else
     app.UseExceptionHandler("/error");
 }
 
+// Security Middleware
 app.UseHttpsRedirection();
 app.UseAuthorization();
+
+// Route Configuration
 app.MapControllers();
+
+// Run Application
 app.Run();

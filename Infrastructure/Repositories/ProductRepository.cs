@@ -16,37 +16,33 @@ namespace WebApi_With_SQL_Server.Infrastructure.Repositories
 
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            return await _context.Products.Include(p => p.CategoryNavigation).ToListAsync();
+            return await _context.Products.ToListAsync();
         }
 
         public async Task<Product?> GetByIdAsync(int id)
         {
-            return await _context.Products
-                .Include(p => p.CategoryNavigation)
-                .FirstOrDefaultAsync(p => p.Id == id);
+            return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task AddAsync(Product product)
+        public async Task AddAsync(Product entity)
         {
-            await _context.Products.AddAsync(product);
-            await _context.SaveChangesAsync();
+            await _context.Products.AddAsync(entity);
+            await _context.SaveChangesAsync(); // ✅ thêm Save trực tiếp để insert nhanh
         }
 
-        public void Update(Product product)
+        public void Update(Product entity)
         {
-            _context.Products.Update(product);
-            _context.SaveChanges();
+            _context.Products.Update(entity);
         }
 
-        public void Delete(Product product)
+        public void Delete(Product entity)
         {
-            _context.Products.Remove(product);
-            _context.SaveChanges();
+            _context.Products.Remove(entity);
         }
+
         public async Task SaveAsync()
         {
             await _context.SaveChangesAsync();
-
         }
     }
 }

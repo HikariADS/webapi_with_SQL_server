@@ -1,0 +1,53 @@
+2025-11-03 08:56:37.768 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-03 08:56:37.824 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-11-03 08:56:38.003 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-03 08:56:38.147 +07:00 [INF] Now listening on: http://localhost:5170
+2025-11-03 08:56:38.148 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-03 08:56:38.149 +07:00 [INF] Hosting environment: Development
+2025-11-03 08:56:38.150 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-11-03 08:58:47.916 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-11-03 08:58:47.962 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-11-03 08:58:47.975 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 404 0 null 60.6547ms
+2025-11-03 08:58:47.989 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/, Response status code: 404
+2025-11-03 08:59:07.014 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/v1/products - null null
+2025-11-03 08:59:07.021 +07:00 [INF] Executing endpoint 'WebApi_With_SQL_Server.Api.Controllers.v1.ProductsController.GetAll (webapi_with_SQL_server)'
+2025-11-03 08:59:07.035 +07:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller WebApi_With_SQL_Server.Api.Controllers.v1.ProductsController (webapi_with_SQL_server).
+2025-11-03 08:59:07.166 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[CategoryId], [p].[Name], [p].[Price], [p].[Status]
+FROM [Products] AS [p]
+2025-11-03 08:59:07.232 +07:00 [INF] Executing OkObjectResult, writing value of type 'WebApi_With_SQL_Server.Api.Responses.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[WebApi_With_SQL_Server.Application.DTOs.ProductDto, webapi_with_SQL_server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-03 08:59:07.254 +07:00 [INF] Executed action WebApi_With_SQL_Server.Api.Controllers.v1.ProductsController.GetAll (webapi_with_SQL_server) in 214.04ms
+2025-11-03 08:59:07.255 +07:00 [INF] Executed endpoint 'WebApi_With_SQL_Server.Api.Controllers.v1.ProductsController.GetAll (webapi_with_SQL_server)'
+2025-11-03 08:59:07.260 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/v1/products - 200 null application/json; charset=utf-8 246.1715ms
+2025-11-03 08:59:07.277 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/favicon.ico - null null
+2025-11-03 08:59:07.282 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/favicon.ico - 404 0 null 4.3748ms
+2025-11-03 08:59:07.284 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/favicon.ico, Response status code: 404
+2025-11-03 09:01:13.783 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api - null null
+2025-11-03 09:01:13.785 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api - 404 0 null 2.0014ms
+2025-11-03 09:01:13.787 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/api, Response status code: 404
+2025-11-03 09:01:16.062 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api - null null
+2025-11-03 09:01:16.064 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api - 404 0 null 2.136ms
+2025-11-03 09:01:16.067 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/api, Response status code: 404
+2025-11-03 09:01:25.903 +07:00 [INF] Application is shutting down...

@@ -1,0 +1,558 @@
+2025-10-31 14:48:29.332 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-31 14:48:29.409 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-10-31 14:48:29.611 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-31 14:48:29.734 +07:00 [WRN] The WebRootPath was not found: C:\Users\bebiu\webapi_with_SQL_server\wwwroot. Static files may be unavailable.
+2025-10-31 14:48:29.754 +07:00 [INF] Now listening on: http://localhost:5170
+2025-10-31 14:48:29.756 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-31 14:48:29.757 +07:00 [INF] Hosting environment: Development
+2025-10-31 14:48:29.758 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-10-31 14:48:40.576 +07:00 [INF] Application is shutting down...
+2025-10-31 14:53:16.710 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-31 14:53:16.788 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-10-31 14:53:16.971 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-31 14:53:17.054 +07:00 [WRN] The WebRootPath was not found: C:\Users\bebiu\webapi_with_SQL_server\wwwroot. Static files may be unavailable.
+2025-10-31 14:53:17.069 +07:00 [INF] Now listening on: http://localhost:5170
+2025-10-31 14:53:17.071 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-31 14:53:17.072 +07:00 [INF] Hosting environment: Development
+2025-10-31 14:53:17.073 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-10-31 14:53:25.424 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-10-31 14:53:25.477 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-10-31 14:53:25.486 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 404 0 null 63.7854ms
+2025-10-31 14:53:25.495 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/, Response status code: 404
+2025-10-31 14:53:35.213 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-10-31 14:53:35.223 +07:00 [INF] Executing endpoint 'WebApi_With_SQL_Server.Api.Controllers.ProductsController.GetAll (webapi_with_SQL_server)'
+2025-10-31 14:53:35.238 +07:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller WebApi_With_SQL_Server.Api.Controllers.ProductsController (webapi_with_SQL_server).
+2025-10-31 14:53:35.359 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[CategoryId], [p].[Name], [p].[Price], [p].[Status]
+FROM [Products] AS [p]
+2025-10-31 14:53:35.421 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebApi_With_SQL_Server.Application.DTOs.ProductDto, webapi_with_SQL_server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-31 14:53:35.449 +07:00 [INF] Executed action WebApi_With_SQL_Server.Api.Controllers.ProductsController.GetAll (webapi_with_SQL_server) in 207.1732ms
+2025-10-31 14:53:35.451 +07:00 [INF] Executed endpoint 'WebApi_With_SQL_Server.Api.Controllers.ProductsController.GetAll (webapi_with_SQL_server)'
+2025-10-31 14:53:35.464 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 200 null application/json; charset=utf-8 250.575ms
+2025-10-31 14:53:35.513 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/favicon.ico - null null
+2025-10-31 14:53:35.524 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/favicon.ico - 404 0 null 11.0294ms
+2025-10-31 14:53:35.526 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/favicon.ico, Response status code: 404
+2025-10-31 15:00:23.637 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:00:23.735 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 98.8291ms
+2025-10-31 15:00:29.335 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/dóc - null null
+2025-10-31 15:00:29.338 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/dóc - 404 0 null 2.2887ms
+2025-10-31 15:00:29.340 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/d%C3%B3c, Response status code: 404
+2025-10-31 15:00:39.273 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/docs - null null
+2025-10-31 15:00:39.275 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/docs - 301 0 null 2.1896ms
+2025-10-31 15:00:39.280 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/docs/index.html - null null
+2025-10-31 15:00:39.323 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/docs/index.html - 200 null text/html;charset=utf-8 43.5384ms
+2025-10-31 15:00:39.331 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/docs/swagger-ui.css - null null
+2025-10-31 15:00:39.331 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/docs/index.css - null null
+2025-10-31 15:00:39.332 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/docs/swagger-ui-bundle.js - null null
+2025-10-31 15:00:39.332 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/docs/swagger-ui-standalone-preset.js - null null
+2025-10-31 15:00:39.332 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/docs/index.js - null null
+2025-10-31 15:00:39.356 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/docs/index.css - 200 152 text/css 8.882ms
+2025-10-31 15:00:39.357 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/docs/swagger-ui.css - 200 23647 text/css 26.4358ms
+2025-10-31 15:00:39.359 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/docs/swagger-ui-standalone-preset.js - 200 77352 text/javascript 26.6161ms
+2025-10-31 15:00:39.359 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/docs/index.js - 200 null application/javascript;charset=utf-8 27.0437ms
+2025-10-31 15:00:39.367 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/docs/swagger-ui-bundle.js - 200 424767 text/javascript 35.2018ms
+2025-10-31 15:00:39.497 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:00:39.502 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 4.8455ms
+2025-10-31 15:00:39.512 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/docs/favicon-32x32.png - null null
+2025-10-31 15:00:39.516 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/docs/favicon-32x32.png - 200 628 image/png 3.3307ms
+2025-10-31 15:02:07.380 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/docs/index.html - null null
+2025-10-31 15:02:07.382 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/docs/index.html - 200 null text/html;charset=utf-8 2.4255ms
+2025-10-31 15:02:07.524 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:02:07.529 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.7239ms
+2025-10-31 15:02:08.463 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/docs/index.html - null null
+2025-10-31 15:02:08.465 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/docs/index.html - 200 null text/html;charset=utf-8 2.3436ms
+2025-10-31 15:02:08.510 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:02:08.516 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.0166ms
+2025-10-31 15:02:34.655 +07:00 [INF] Application is shutting down...
+2025-10-31 15:02:49.934 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-31 15:02:50.010 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-10-31 15:02:50.182 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-31 15:02:50.260 +07:00 [WRN] The WebRootPath was not found: C:\Users\bebiu\webapi_with_SQL_server\wwwroot. Static files may be unavailable.
+2025-10-31 15:02:50.274 +07:00 [INF] Now listening on: http://localhost:5170
+2025-10-31 15:02:50.276 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-31 15:02:50.277 +07:00 [INF] Hosting environment: Development
+2025-10-31 15:02:50.278 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-10-31 15:02:56.619 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD - null null
+2025-10-31 15:02:56.659 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD - 301 0 null 41.1007ms
+2025-10-31 15:02:56.669 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 15:02:56.728 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 59.0504ms
+2025-10-31 15:02:56.735 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/swagger-ui.css - null null
+2025-10-31 15:02:56.736 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.css - null null
+2025-10-31 15:02:56.737 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/swagger-ui-bundle.js - null null
+2025-10-31 15:02:56.737 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/swagger-ui-standalone-preset.js - null null
+2025-10-31 15:02:56.737 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.js - null null
+2025-10-31 15:02:56.749 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.js - 200 null application/javascript;charset=utf-8 12.2701ms
+2025-10-31 15:02:56.750 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.css - 200 152 text/css 14.1474ms
+2025-10-31 15:02:56.751 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/swagger-ui.css - 200 23647 text/css 15.3925ms
+2025-10-31 15:02:56.763 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/swagger-ui-standalone-preset.js - 200 77352 text/javascript 25.7981ms
+2025-10-31 15:02:56.763 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/swagger-ui-bundle.js - 200 424767 text/javascript 26.1387ms
+2025-10-31 15:02:56.910 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:02:56.917 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/favicon-32x32.png - null null
+2025-10-31 15:02:56.921 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/favicon-32x32.png - 200 628 image/png 4.3658ms
+2025-10-31 15:02:57.018 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 107.35ms
+2025-10-31 15:08:33.457 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 15:08:33.460 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 2.8355ms
+2025-10-31 15:08:33.616 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:08:33.623 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.2156ms
+2025-10-31 15:08:34.435 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 15:08:34.437 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 2.346ms
+2025-10-31 15:08:34.506 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:08:34.511 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.033ms
+2025-10-31 15:08:35.860 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 15:08:35.863 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 2.5026ms
+2025-10-31 15:08:35.909 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:08:35.914 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.0444ms
+2025-10-31 15:08:36.029 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 15:08:36.031 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 1.9472ms
+2025-10-31 15:08:36.073 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:08:36.077 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 4.0218ms
+2025-10-31 15:08:36.330 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 15:08:36.332 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 2.3884ms
+2025-10-31 15:08:36.371 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:08:36.375 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 3.5152ms
+2025-10-31 15:12:12.689 +07:00 [INF] Application is shutting down...
+2025-10-31 15:12:23.192 +07:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-31 15:12:23.280 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-10-31 15:12:23.626 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-31 15:12:23.738 +07:00 [WRN] The WebRootPath was not found: C:\Users\bebiu\webapi_with_SQL_server\wwwroot. Static files may be unavailable.
+2025-10-31 15:12:23.756 +07:00 [INF] Now listening on: http://localhost:5170
+2025-10-31 15:12:23.759 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-31 15:12:23.759 +07:00 [INF] Hosting environment: Development
+2025-10-31 15:12:23.760 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-10-31 15:12:56.985 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 15:12:57.068 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 84.8472ms
+2025-10-31 15:12:57.222 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:12:57.322 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 99.7191ms
+2025-10-31 15:12:59.626 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 15:12:59.631 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 4.5415ms
+2025-10-31 15:12:59.707 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:12:59.714 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.7308ms
+2025-10-31 15:12:59.804 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 15:12:59.807 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 2.5391ms
+2025-10-31 15:12:59.938 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:12:59.959 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 20.5161ms
+2025-10-31 15:13:00.145 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 15:13:00.147 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 2.31ms
+2025-10-31 15:13:00.194 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:13:00.201 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 6.793ms
+2025-10-31 15:13:03.718 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:13:03.723 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 4.7729ms
+2025-10-31 15:13:09.447 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:13:09.456 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.7044ms
+2025-10-31 15:23:19.818 +07:00 [INF] Application is shutting down...
+2025-10-31 15:23:36.629 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-31 15:23:36.698 +07:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-10-31 15:23:36.864 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-31 15:23:36.943 +07:00 [WRN] The WebRootPath was not found: C:\Users\bebiu\webapi_with_SQL_server\wwwroot. Static files may be unavailable.
+2025-10-31 15:23:36.959 +07:00 [INF] Now listening on: http://localhost:5170
+2025-10-31 15:23:36.961 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-31 15:23:36.962 +07:00 [INF] Hosting environment: Development
+2025-10-31 15:23:36.962 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-10-31 15:24:28.157 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-10-31 15:24:28.216 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-10-31 15:24:28.264 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 500 null application/json 108.854ms
+2025-10-31 15:24:32.787 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-10-31 15:24:32.791 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-10-31 15:24:32.793 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 500 null application/json 5.259ms
+2025-10-31 15:24:33.380 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-10-31 15:24:33.383 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-10-31 15:24:33.385 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 500 null application/json 4.4862ms
+2025-10-31 15:24:33.660 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-10-31 15:24:33.663 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-10-31 15:24:33.664 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 500 null application/json 3.7821ms
+2025-10-31 15:24:33.902 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-10-31 15:24:33.904 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-10-31 15:24:33.905 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 500 null application/json 3.4887ms
+2025-10-31 15:24:34.105 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-10-31 15:24:34.107 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-10-31 15:24:34.108 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 500 null application/json 2.8907ms
+2025-10-31 15:24:34.573 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-10-31 15:24:34.575 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-10-31 15:24:34.577 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 500 null application/json 3.6001ms
+2025-10-31 15:24:34.816 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-10-31 15:24:34.818 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-10-31 15:24:34.820 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 500 null application/json 4.0259ms
+2025-10-31 15:24:35.012 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-10-31 15:24:35.014 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-10-31 15:24:35.015 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 500 null application/json 3.458ms
+2025-10-31 15:24:44.038 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-10-31 15:24:44.040 +07:00 [ERR] ❌ Exception: An item with the same key has already been added. Key: v1
+2025-10-31 15:24:44.041 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 500 null application/json 3.3075ms
+2025-10-31 15:29:23.643 +07:00 [INF] Application is shutting down...
+2025-10-31 15:30:11.996 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-31 15:30:12.072 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-10-31 15:30:12.248 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-31 15:30:12.418 +07:00 [WRN] The WebRootPath was not found: C:\Users\bebiu\webapi_with_SQL_server\wwwroot. Static files may be unavailable.
+2025-10-31 15:30:12.482 +07:00 [INF] Now listening on: http://localhost:5170
+2025-10-31 15:30:12.484 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-31 15:30:12.488 +07:00 [INF] Hosting environment: Development
+2025-10-31 15:30:12.490 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-10-31 15:30:16.672 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-10-31 15:30:16.689 +07:00 [ERR] ❌ Exception: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+2025-10-31 15:30:16.727 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 500 null application/json 55.941ms
+2025-10-31 15:32:49.463 +07:00 [INF] Application is shutting down...
+2025-10-31 15:33:40.304 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-31 15:33:40.399 +07:00 [INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-10-31 15:33:40.632 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-31 15:33:40.754 +07:00 [WRN] The WebRootPath was not found: C:\Users\bebiu\webapi_with_SQL_server\wwwroot. Static files may be unavailable.
+2025-10-31 15:33:40.801 +07:00 [INF] Now listening on: http://localhost:5170
+2025-10-31 15:33:40.804 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-31 15:33:40.807 +07:00 [INF] Hosting environment: Development
+2025-10-31 15:33:40.810 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-10-31 15:34:36.703 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-10-31 15:34:36.732 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-10-31 15:34:36.737 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 404 0 null 34.228ms
+2025-10-31 15:34:36.744 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/api/products, Response status code: 404
+2025-10-31 15:34:37.463 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-10-31 15:34:37.467 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 404 0 null 3.9137ms
+2025-10-31 15:34:37.470 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/api/products, Response status code: 404
+2025-10-31 15:34:38.932 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-10-31 15:34:38.936 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 404 0 null 4.0182ms
+2025-10-31 15:34:38.939 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/api/products, Response status code: 404
+2025-10-31 15:34:39.244 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-10-31 15:34:39.247 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 404 0 null 2.6715ms
+2025-10-31 15:34:39.250 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/api/products, Response status code: 404
+2025-10-31 15:34:39.421 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-10-31 15:34:39.425 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 404 0 null 3.4539ms
+2025-10-31 15:34:39.428 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/api/products, Response status code: 404
+2025-10-31 15:34:39.576 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-10-31 15:34:39.578 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 404 0 null 2.372ms
+2025-10-31 15:34:39.581 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/api/products, Response status code: 404
+2025-10-31 15:34:59.000 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/products - null null
+2025-10-31 15:34:59.003 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/products - 404 0 null 2.6095ms
+2025-10-31 15:34:59.006 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/api/products, Response status code: 404
+2025-10-31 15:35:03.868 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:35:03.957 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 88.4878ms
+2025-10-31 15:37:59.811 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/v1/products - null null
+2025-10-31 15:37:59.817 +07:00 [INF] Executing endpoint 'WebApi_With_SQL_Server.Api.Controllers.v1.ProductsController.GetAll (webapi_with_SQL_server)'
+2025-10-31 15:37:59.834 +07:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller WebApi_With_SQL_Server.Api.Controllers.v1.ProductsController (webapi_with_SQL_server).
+2025-10-31 15:37:59.978 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[CategoryId], [p].[Name], [p].[Price], [p].[Status]
+FROM [Products] AS [p]
+2025-10-31 15:38:00.042 +07:00 [INF] Executing OkObjectResult, writing value of type 'WebApi_With_SQL_Server.Api.Responses.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[WebApi_With_SQL_Server.Application.DTOs.ProductDto, webapi_with_SQL_server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-31 15:38:00.072 +07:00 [INF] Executed action WebApi_With_SQL_Server.Api.Controllers.v1.ProductsController.GetAll (webapi_with_SQL_server) in 232.5634ms
+2025-10-31 15:38:00.074 +07:00 [INF] Executed endpoint 'WebApi_With_SQL_Server.Api.Controllers.v1.ProductsController.GetAll (webapi_with_SQL_server)'
+2025-10-31 15:38:00.079 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/v1/products - 200 null application/json; charset=utf-8 267.988ms
+2025-10-31 15:38:06.973 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/v2/products - null null
+2025-10-31 15:38:06.975 +07:00 [INF] Executing endpoint 'WebApi_With_SQL_Server.Api.Controllers.v2.ProductsController.GetAll (webapi_with_SQL_server)'
+2025-10-31 15:38:06.983 +07:00 [INF] Route matched with {action = "GetAll", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(System.String, Int32, Int32) on controller WebApi_With_SQL_Server.Api.Controllers.v2.ProductsController (webapi_with_SQL_server).
+2025-10-31 15:38:07.068 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+2025-10-31 15:38:07.111 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[CategoryId], [p].[Name], [p].[Price], [p].[Status]
+FROM [Products] AS [p]
+ORDER BY [p].[Id]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2025-10-31 15:38:07.114 +07:00 [INF] Executing OkObjectResult, writing value of type 'WebApi_With_SQL_Server.Api.Responses.ApiResponse`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-31 15:38:07.122 +07:00 [INF] Executed action WebApi_With_SQL_Server.Api.Controllers.v2.ProductsController.GetAll (webapi_with_SQL_server) in 136.8419ms
+2025-10-31 15:38:07.123 +07:00 [INF] Executed endpoint 'WebApi_With_SQL_Server.Api.Controllers.v2.ProductsController.GetAll (webapi_with_SQL_server)'
+2025-10-31 15:38:07.124 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/v2/products - 200 null application/json; charset=utf-8 151.4004ms
+2025-10-31 15:38:42.614 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:38:42.620 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.945ms
+2025-10-31 15:38:52.973 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 15:38:52.978 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.0942ms
+2025-10-31 16:00:52.326 +07:00 [INF] Application is shutting down...
+2025-10-31 16:01:08.600 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-31 16:01:08.674 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-10-31 16:01:08.841 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-31 16:01:08.924 +07:00 [WRN] The WebRootPath was not found: C:\Users\bebiu\webapi_with_SQL_server\wwwroot. Static files may be unavailable.
+2025-10-31 16:01:08.939 +07:00 [INF] Now listening on: http://localhost:5170
+2025-10-31 16:01:08.941 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-31 16:01:08.942 +07:00 [INF] Hosting environment: Development
+2025-10-31 16:01:08.942 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-10-31 16:01:13.754 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 16:01:13.819 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 65.3667ms
+2025-10-31 16:01:13.960 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 16:01:14.090 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 129.6931ms
+2025-10-31 16:10:50.665 +07:00 [INF] Application is shutting down...
+2025-10-31 16:11:02.580 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-31 16:11:02.652 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-10-31 16:11:02.825 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-31 16:11:02.907 +07:00 [WRN] The WebRootPath was not found: C:\Users\bebiu\webapi_with_SQL_server\wwwroot. Static files may be unavailable.
+2025-10-31 16:11:02.922 +07:00 [INF] Now listening on: http://localhost:5170
+2025-10-31 16:11:02.924 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-31 16:11:02.925 +07:00 [INF] Hosting environment: Development
+2025-10-31 16:11:02.925 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-10-31 16:11:21.936 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 16:11:22.001 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 65.6152ms
+2025-10-31 16:11:22.141 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 16:11:22.214 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 72.7515ms
+2025-10-31 16:11:24.125 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 16:11:24.129 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 3.9649ms
+2025-10-31 16:11:24.197 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 16:11:24.203 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.5805ms
+2025-10-31 16:11:24.274 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 16:11:24.276 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 2.3026ms
+2025-10-31 16:11:24.319 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 16:11:24.325 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.3757ms
+2025-10-31 16:11:24.417 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 16:11:24.419 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 2.391ms
+2025-10-31 16:11:24.465 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 16:11:24.470 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 4.436ms
+2025-10-31 16:11:24.557 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 16:11:24.560 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 2.6788ms
+2025-10-31 16:11:24.601 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 16:11:24.607 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 5.7285ms
+2025-10-31 16:11:24.702 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-10-31 16:11:24.704 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 2.5017ms
+2025-10-31 16:11:24.747 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-10-31 16:11:24.751 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 4.1726ms
+2025-10-31 16:14:41.846 +07:00 [INF] Application is shutting down...
+2025-10-31 16:18:31.037 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-31 16:18:31.158 +07:00 [INF] Executed DbCommand (87ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-10-31 16:18:31.374 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-31 16:18:31.469 +07:00 [INF] Now listening on: http://localhost:5170
+2025-10-31 16:18:31.470 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-31 16:18:31.471 +07:00 [INF] Hosting environment: Development
+2025-10-31 16:18:31.472 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server
+2025-10-31 16:20:59.525 +07:00 [INF] Application is shutting down...
+2025-10-31 16:21:28.237 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-10-31 16:21:28.315 +07:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-10-31 16:21:28.557 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-31 16:21:28.650 +07:00 [INF] Now listening on: http://localhost:5170
+2025-10-31 16:21:28.651 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-31 16:21:28.652 +07:00 [INF] Hosting environment: Development
+2025-10-31 16:21:28.652 +07:00 [INF] Content root path: C:\Users\bebiu\webapi_with_SQL_server

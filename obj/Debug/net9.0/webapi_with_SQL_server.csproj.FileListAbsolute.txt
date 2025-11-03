@@ -1,5 +1,6 @@
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\appsettings.json
+C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\webapi_with_SQL_server.staticwebassets.runtime.json
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\webapi_with_SQL_server.staticwebassets.endpoints.json
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\webapi_with_SQL_server.exe
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\webapi_with_SQL_server.deps.json
@@ -11,6 +12,8 @@ C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\AutoMapper.Extensions.Mic
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Azure.Core.dll
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Azure.Identity.dll
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Humanizer.dll
+C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.Versioning.dll
+C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.Build.Locator.dll
@@ -54,6 +57,15 @@ C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.OpenApi.dll
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Mono.TextTemplating.dll
+C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Serilog.dll
+C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Serilog.AspNetCore.dll
+C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Serilog.Extensions.Hosting.dll
+C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Serilog.Extensions.Logging.dll
+C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Serilog.Formatting.Compact.dll
+C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Serilog.Settings.Configuration.dll
+C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Serilog.Sinks.Console.dll
+C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Serilog.Sinks.Debug.dll
+C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Serilog.Sinks.File.dll
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\bebiu\webapi_with_SQL_server\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -157,6 +169,7 @@ C:\Users\bebiu\webapi_with_SQL_server\obj\Debug\net9.0\webapi_with_SQL_server.As
 C:\Users\bebiu\webapi_with_SQL_server\obj\Debug\net9.0\webapi_with_SQL_server.csproj.CoreCompileInputs.cache
 C:\Users\bebiu\webapi_with_SQL_server\obj\Debug\net9.0\webapi_with_SQL_server.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\bebiu\webapi_with_SQL_server\obj\Debug\net9.0\webapi_with_SQL_server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\bebiu\webapi_with_SQL_server\obj\Debug\net9.0\webapi_with_SQL_server.sourcelink.json
 C:\Users\bebiu\webapi_with_SQL_server\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\bebiu\webapi_with_SQL_server\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\bebiu\webapi_with_SQL_server\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
