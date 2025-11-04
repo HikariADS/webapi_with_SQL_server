@@ -20,8 +20,7 @@ namespace WebApi_With_SQL_Server.Domain.Entities
         public string Category { get; set; } = string.Empty;
 
         public ProductStatus Status { get; set; } = ProductStatus.Active;
-
-        // Quan hệ (1 Category - nhiều Product)
+        
         public int CategoryId { get; set; }
         public Category? CategoryNavigation { get; set; }
     }

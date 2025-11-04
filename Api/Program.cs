@@ -18,10 +18,10 @@ using Microsoft.AspNetCore.Identity;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using WebApi_With_SQL_Server.Domain.Entities;
-// ...existing code...
+
 
 // ---------------------------
-// 1️⃣ Cấu hình Serilog Logging
+// Cấu hình Serilog Logging
 // ---------------------------
 Log.Logger = new LoggerConfiguration()
     .WriteTo.File("Infrastructure/Logs/error-.log", rollingInterval: RollingInterval.Day)
@@ -32,12 +32,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog();
 
 // ---------------------------
-// 2️⃣ Đăng ký các services
+// Đăng ký các services
 // ---------------------------
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-
+// ---------------------------
 // API Versioning
+// ---------------------------
+
 builder.Services.AddVersionedApiExplorer(options =>
 {
     options.GroupNameFormat = "'v'VVV";
@@ -54,13 +56,15 @@ builder.Services.AddApiVersioning(options =>
         new HeaderApiVersionReader("api-version")
     );
 });
-
-// Swagger - register only ONCE the ConfigureSwaggerOptions implementation
+// ---------------------------
+// Swagger 
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>(); // keep this
-// removed: builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
+builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+// ---------------------------
 
+// ---------------------------
 // SQL Server
+// ---------------------------
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -70,9 +74,12 @@ builder.Services.AddDbContext<AuthDbContext>(options =>
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AuthDbContext>()
     .AddDefaultTokenProviders();
+
+// ---------------------------
 // add Authentication
+// ---------------------------
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-var key = Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]);
+var key = Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]!);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -88,28 +95,37 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(key)
         };
     });
-
+// ---------------------------
 // Repositories & Services
+// ---------------------------
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
 
+// ---------------------------
 // AutoMapper
+// ---------------------------
 builder.Services.AddAutoMapper(typeof(Program));
-
+// ---------------------------
 // File Browser
+//----------------------------
 builder.Services.AddDirectoryBrowser();
-
+//---------------------------
 // Build app
+// ---------------------------
 var app = builder.Build();
 
 // ---------------------------
-// 3️⃣ Configure Middleware Pipeline
+// Configure Middleware Pipeline
 // ---------------------------
 
+// ----------------------------
 // Exception Handling
+// ---------------------------
 app.UseMiddleware<ExceptionMiddleware>();
 
+// ---------------------------
 // Static Files
+// ---------------------------
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
@@ -123,16 +139,18 @@ app.UseDirectoryBrowser(new DirectoryBrowserOptions
         Path.Combine(builder.Environment.ContentRootPath, "wwwroot", "images")),
     RequestPath = "/images"
 });
-
+// ---------------------------
 // Database Seeding
+// ---------------------------
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     dbContext.Database.EnsureCreated();
     AppDbSeeder.Seed(dbContext);
 }
-
+// ---------------------------
 // Swagger UI
+// ---------------------------
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -156,13 +174,7 @@ else
 {
     app.UseExceptionHandler("/error");
 }
-
-// Security Middleware
 app.UseHttpsRedirection();
 app.UseAuthorization();
-
-// Route Configuration
 app.MapControllers();
-
-// Run Application
 app.Run();

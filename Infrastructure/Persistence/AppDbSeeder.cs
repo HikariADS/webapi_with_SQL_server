@@ -7,12 +7,10 @@ namespace WebApi_With_SQL_Server.Infrastructure.Persistence
         public static void Seed(AppDbContext context)
         {
             try
-            {
-                // Nếu DB đã có dữ liệu thì bỏ qua
+            {      
                 if (context.Products.Any() || context.Categories.Any())
                     return;
 
-                // 🌱 Seed Categories
                 var categories = new List<Category>
                 {
                     new() { Name = "Laptop" },
@@ -22,9 +20,8 @@ namespace WebApi_With_SQL_Server.Infrastructure.Persistence
                 };
 
                 context.Categories.AddRange(categories);
-                context.SaveChanges(); // Bắt buộc gọi Save trước khi seed Products
-
-                // 🌱 Seed Products
+                context.SaveChanges();
+               
                 var products = new List<Product>
                 {
                     new()
@@ -66,7 +63,7 @@ namespace WebApi_With_SQL_Server.Infrastructure.Persistence
                 };
 
                 context.Products.AddRange(products);
-                context.SaveChanges(); // Lưu lại toàn bộ seed
+                context.SaveChanges(); 
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("✅ Database seeded successfully!");

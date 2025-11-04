@@ -27,7 +27,7 @@ namespace WebApi_With_SQL_Server.Infrastructure.Repositories
         public async Task AddAsync(Product entity)
         {
             await _context.Products.AddAsync(entity);
-            await _context.SaveChangesAsync(); // ✅ thêm Save trực tiếp để insert nhanh
+            await _context.SaveChangesAsync(); 
         }
 
         public void Update(Product entity)

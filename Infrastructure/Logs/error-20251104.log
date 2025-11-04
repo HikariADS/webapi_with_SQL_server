@@ -99,3 +99,505 @@ END
 2025-11-04 15:17:11.593 +07:00 [INF] Hosting environment: Development
 2025-11-04 15:17:11.594 +07:00 [INF] Content root path: C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server
 2025-11-04 15:17:29.441 +07:00 [INF] Application is shutting down...
+2025-11-04 15:52:06.980 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-04 15:52:07.049 +07:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-11-04 15:52:07.228 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-04 15:52:07.312 +07:00 [INF] User profile is available. Using 'C:\Users\bebiu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 15:52:07.322 +07:00 [INF] Creating key {fdb17230-834a-44c0-bc8b-615bf2585e81} with creation date 2025-11-04 08:52:07Z, activation date 2025-11-04 08:52:07Z, and expiration date 2026-02-02 08:52:07Z.
+2025-11-04 15:52:07.334 +07:00 [INF] Writing data to file 'C:\Users\bebiu\AppData\Local\ASP.NET\DataProtection-Keys\key-fdb17230-834a-44c0-bc8b-615bf2585e81.xml'.
+2025-11-04 15:52:07.380 +07:00 [INF] Now listening on: http://localhost:5170
+2025-11-04 15:52:07.382 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 15:52:07.382 +07:00 [INF] Hosting environment: Development
+2025-11-04 15:52:07.383 +07:00 [INF] Content root path: C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server
+2025-11-04 15:53:02.385 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/ - null null
+2025-11-04 15:53:02.447 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-11-04 15:53:02.454 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/ - 404 0 null 69.6132ms
+2025-11-04 15:53:02.464 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/, Response status code: 404
+2025-11-04 15:53:09.739 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-11-04 15:53:09.851 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 111.8035ms
+2025-11-04 15:54:49.858 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-11-04 15:54:49.869 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.9655ms
+2025-11-04 15:54:57.904 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-11-04 15:54:57.912 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.9874ms
+2025-11-04 15:56:42.354 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5170/api/Auth/register - application/json 126
+2025-11-04 15:56:42.364 +07:00 [INF] Executing endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server)'
+2025-11-04 15:56:42.380 +07:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(WebApi_With_SQL_Server.Api.Controllers.RegisterDto) on controller WebApi_With_SQL_Server.Api.Controllers.AuthController (webapi_with_SQL_server).
+2025-11-04 15:56:42.641 +07:00 [ERR] An error occurred using the connection to database '' on server ''.
+2025-11-04 15:56:42.657 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'WebApi_With_SQL_Server.Infrastructure.Persistence.AuthDbContext'.
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: The ConnectionString property has not been initialized.
+   at Microsoft.Data.SqlClient.SqlConnection.PermissionDemand()
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-11-04 15:56:42.666 +07:00 [INF] Executed action WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server) in 282.1557ms
+2025-11-04 15:56:42.668 +07:00 [INF] Executed endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server)'
+2025-11-04 15:56:42.669 +07:00 [ERR] ❌ Exception: The ConnectionString property has not been initialized.
+2025-11-04 15:56:42.700 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5170/api/Auth/register - 500 null application/json 346.3708ms
+2025-11-04 16:01:49.536 +07:00 [INF] Application is shutting down...
+2025-11-04 16:02:04.950 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-04 16:02:05.022 +07:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-11-04 16:02:05.200 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-04 16:02:05.281 +07:00 [INF] User profile is available. Using 'C:\Users\bebiu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 16:02:05.321 +07:00 [INF] Now listening on: http://localhost:5170
+2025-11-04 16:02:05.323 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 16:02:05.324 +07:00 [INF] Hosting environment: Development
+2025-11-04 16:02:05.324 +07:00 [INF] Content root path: C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server
+2025-11-04 16:02:11.301 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-11-04 16:02:11.392 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 91.8276ms
+2025-11-04 16:02:11.544 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-11-04 16:02:11.644 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 99.7931ms
+2025-11-04 16:02:47.513 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5170/api/Auth/register - application/json 121
+2025-11-04 16:02:47.528 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-11-04 16:02:47.531 +07:00 [INF] Executing endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server)'
+2025-11-04 16:02:47.548 +07:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(WebApi_With_SQL_Server.Api.Controllers.RegisterDto) on controller WebApi_With_SQL_Server.Api.Controllers.AuthController (webapi_with_SQL_server).
+2025-11-04 16:02:47.605 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityError, Microsoft.Extensions.Identity.Core, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+2025-11-04 16:02:47.616 +07:00 [INF] Executed action WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server) in 63.0679ms
+2025-11-04 16:02:47.618 +07:00 [INF] Executed endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server)'
+2025-11-04 16:02:47.620 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5170/api/Auth/register - 400 null application/json; charset=utf-8 106.9469ms
+2025-11-04 16:03:08.425 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5170/api/Auth/register - application/json 130
+2025-11-04 16:03:08.429 +07:00 [INF] Executing endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server)'
+2025-11-04 16:03:08.430 +07:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(WebApi_With_SQL_Server.Api.Controllers.RegisterDto) on controller WebApi_With_SQL_Server.Api.Controllers.AuthController (webapi_with_SQL_server).
+2025-11-04 16:03:08.669 +07:00 [ERR] An error occurred using the connection to database 'WebApiAuthDb' on server 'LINK'.
+2025-11-04 16:03:08.688 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'WebApi_With_SQL_Server.Infrastructure.Persistence.AuthDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "WebApiAuthDb" requested by the login. The login failed.
+Login failed for user 'Link\bebiu'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:260929d2-813c-4842-8b0b-9d8407145a88
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "WebApiAuthDb" requested by the login. The login failed.
+Login failed for user 'Link\bebiu'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:260929d2-813c-4842-8b0b-9d8407145a88
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-11-04 16:03:08.703 +07:00 [INF] Executed action WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server) in 270.7357ms
+2025-11-04 16:03:08.704 +07:00 [INF] Executed endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server)'
+2025-11-04 16:03:08.707 +07:00 [ERR] ❌ Exception: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+2025-11-04 16:03:08.733 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5170/api/Auth/register - 500 null application/json 307.9466ms
+2025-11-04 16:05:04.195 +07:00 [INF] Application is shutting down...
+2025-11-04 16:05:24.043 +07:00 [INF] Executed DbCommand (3,248ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [WebApiAuthDb];
+2025-11-04 16:05:24.237 +07:00 [INF] Executed DbCommand (103ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [WebApiAuthDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-11-04 16:05:24.258 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-04 16:05:24.263 +07:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-11-04 16:05:24.286 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-11-04 16:05:24.347 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-11-04 16:05:24.356 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-04 16:05:24.359 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-04 16:05:24.371 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-04 16:05:24.382 +07:00 [INF] Applying migration '20251104090509_InitIdentity'.
+2025-11-04 16:05:24.418 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2025-11-04 16:05:24.423 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [FullName] nvarchar(max) NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2025-11-04 16:05:24.429 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+2025-11-04 16:05:24.433 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-11-04 16:05:24.439 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-11-04 16:05:24.443 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-11-04 16:05:24.449 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-11-04 16:05:24.455 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+2025-11-04 16:05:24.460 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2025-11-04 16:05:24.463 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+2025-11-04 16:05:24.467 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+2025-11-04 16:05:24.470 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+2025-11-04 16:05:24.473 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+2025-11-04 16:05:24.477 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2025-11-04 16:05:24.486 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20251104090509_InitIdentity', N'9.0.10');
+2025-11-04 16:05:24.492 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-11-04 16:06:21.878 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-04 16:06:22.012 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-11-04 16:06:22.289 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-04 16:06:22.409 +07:00 [INF] User profile is available. Using 'C:\Users\bebiu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 16:06:22.523 +07:00 [INF] Now listening on: http://localhost:5170
+2025-11-04 16:06:22.525 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 16:06:22.526 +07:00 [INF] Hosting environment: Development
+2025-11-04 16:06:22.527 +07:00 [INF] Content root path: C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server
+2025-11-04 16:06:29.234 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/CRUD/index.html - null null
+2025-11-04 16:06:29.324 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/CRUD/index.html - 200 null text/html;charset=utf-8 91.6607ms
+2025-11-04 16:06:29.471 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - null null
+2025-11-04 16:06:29.569 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 97.6083ms
+2025-11-04 16:07:36.486 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5170/api/Auth/register - application/json 140
+2025-11-04 16:07:36.501 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-11-04 16:07:36.505 +07:00 [INF] Executing endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server)'
+2025-11-04 16:07:36.521 +07:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(WebApi_With_SQL_Server.Api.Controllers.RegisterDto) on controller WebApi_With_SQL_Server.Api.Controllers.AuthController (webapi_with_SQL_server).
+2025-11-04 16:07:36.858 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-11-04 16:07:37.019 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FullName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2025-11-04 16:07:37.035 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-11-04 16:07:37.040 +07:00 [INF] Executed action WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server) in 513.4455ms
+2025-11-04 16:07:37.041 +07:00 [INF] Executed endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server)'
+2025-11-04 16:07:37.047 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5170/api/Auth/register - 200 null text/plain; charset=utf-8 561.2747ms
+2025-11-04 16:08:00.327 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5170/api/Auth/login - application/json 59
+2025-11-04 16:08:00.331 +07:00 [INF] Executing endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Login (webapi_with_SQL_server)'
+2025-11-04 16:08:00.348 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebApi_With_SQL_Server.Api.Controllers.LoginDto) on controller WebApi_With_SQL_Server.Api.Controllers.AuthController (webapi_with_SQL_server).
+2025-11-04 16:08:00.421 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-11-04 16:08:00.425 +07:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-11-04 16:08:00.426 +07:00 [INF] Executed action WebApi_With_SQL_Server.Api.Controllers.AuthController.Login (webapi_with_SQL_server) in 76.1609ms
+2025-11-04 16:08:00.427 +07:00 [INF] Executed endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Login (webapi_with_SQL_server)'
+2025-11-04 16:08:00.429 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5170/api/Auth/login - 401 null text/plain; charset=utf-8 101.8669ms
+2025-11-04 16:08:25.999 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/Auth/register - null null
+2025-11-04 16:08:26.003 +07:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2025-11-04 16:08:26.005 +07:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2025-11-04 16:08:26.007 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/Auth/register - 405 0 null 7.6832ms
+2025-11-04 16:08:28.187 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/api/Auth/register - null null
+2025-11-04 16:08:28.239 +07:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2025-11-04 16:08:28.259 +07:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2025-11-04 16:08:28.319 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/api/Auth/register - 405 0 null 110.145ms
+2025-11-04 16:29:32.000 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5170/api/Auth/login - application/json 69
+2025-11-04 16:29:32.003 +07:00 [INF] Executing endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Login (webapi_with_SQL_server)'
+2025-11-04 16:29:32.004 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebApi_With_SQL_Server.Api.Controllers.LoginDto) on controller WebApi_With_SQL_Server.Api.Controllers.AuthController (webapi_with_SQL_server).
+2025-11-04 16:29:32.027 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-11-04 16:29:32.133 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 16:29:32.140 +07:00 [INF] Executed action WebApi_With_SQL_Server.Api.Controllers.AuthController.Login (webapi_with_SQL_server) in 134.146ms
+2025-11-04 16:29:32.141 +07:00 [INF] Executed endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Login (webapi_with_SQL_server)'
+2025-11-04 16:29:32.143 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5170/api/Auth/login - 200 null application/json; charset=utf-8 142.3702ms
+2025-11-04 16:33:44.169 +07:00 [INF] Application is shutting down...
+2025-11-04 16:34:26.895 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-04 16:34:26.980 +07:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-11-04 16:34:27.170 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-04 16:34:27.353 +07:00 [INF] User profile is available. Using 'C:\Users\bebiu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 16:34:27.396 +07:00 [INF] Now listening on: http://localhost:5170
+2025-11-04 16:34:27.398 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 16:34:27.399 +07:00 [INF] Hosting environment: Development
+2025-11-04 16:34:27.400 +07:00 [INF] Content root path: C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server
+2025-11-04 16:35:55.632 +07:00 [INF] Application is shutting down...
+2025-11-04 16:36:00.265 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-04 16:36:00.378 +07:00 [INF] Executed DbCommand (66ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-11-04 16:36:00.585 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-04 16:36:00.732 +07:00 [INF] User profile is available. Using 'C:\Users\bebiu\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 16:36:00.799 +07:00 [INF] Now listening on: https://localhost:7086
+2025-11-04 16:36:00.800 +07:00 [INF] Now listening on: http://localhost:5170
+2025-11-04 16:36:00.801 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 16:36:00.802 +07:00 [INF] Hosting environment: Development
+2025-11-04 16:36:00.802 +07:00 [INF] Content root path: C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server
+2025-11-04 16:36:05.331 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7086/ - null null
+2025-11-04 16:36:05.429 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7086/ - 404 0 null 100.38ms
+2025-11-04 16:36:05.438 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7086/, Response status code: 404
+2025-11-04 16:36:09.612 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7086/crud/index.html - null null
+2025-11-04 16:36:09.666 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7086/crud/index.html - 200 null text/html;charset=utf-8 53.517ms
+2025-11-04 16:36:09.678 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7086/crud/index.css - null null
+2025-11-04 16:36:09.680 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7086/crud/index.js - null null
+2025-11-04 16:36:09.689 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7086/crud/index.js - 200 null application/javascript;charset=utf-8 9.4164ms
+2025-11-04 16:36:09.701 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7086/crud/index.css - 200 152 text/css 23.674ms
+2025-11-04 16:36:09.865 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - null null
+2025-11-04 16:36:09.990 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 125.1267ms
+2025-11-04 16:36:48.477 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7086/api/Auth/register - application/json 133
+2025-11-04 16:36:48.487 +07:00 [INF] Executing endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server)'
+2025-11-04 16:36:48.504 +07:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(WebApi_With_SQL_Server.Api.Controllers.RegisterDto) on controller WebApi_With_SQL_Server.Api.Controllers.AuthController (webapi_with_SQL_server).
+2025-11-04 16:36:48.816 +07:00 [INF] Executed DbCommand (24ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-11-04 16:36:48.965 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FullName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2025-11-04 16:36:48.990 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-11-04 16:36:49.006 +07:00 [INF] Executed action WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server) in 488.7054ms
+2025-11-04 16:36:49.008 +07:00 [INF] Executed endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Register (webapi_with_SQL_server)'
+2025-11-04 16:36:49.018 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7086/api/Auth/register - 200 null text/plain; charset=utf-8 540.2723ms
+2025-11-04 16:37:09.948 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7086/api/Auth/login - application/json 59
+2025-11-04 16:37:09.952 +07:00 [INF] Executing endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Login (webapi_with_SQL_server)'
+2025-11-04 16:37:09.958 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebApi_With_SQL_Server.Api.Controllers.LoginDto) on controller WebApi_With_SQL_Server.Api.Controllers.AuthController (webapi_with_SQL_server).
+2025-11-04 16:37:10.031 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-11-04 16:37:10.155 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-04 16:37:10.169 +07:00 [INF] Executed action WebApi_With_SQL_Server.Api.Controllers.AuthController.Login (webapi_with_SQL_server) in 209.4243ms
+2025-11-04 16:37:10.171 +07:00 [INF] Executed endpoint 'WebApi_With_SQL_Server.Api.Controllers.AuthController.Login (webapi_with_SQL_server)'
+2025-11-04 16:37:10.173 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7086/api/Auth/login - 200 null application/json; charset=utf-8 225.1117ms
+2025-11-04 16:54:17.078 +07:00 [INF] Application is shutting down...

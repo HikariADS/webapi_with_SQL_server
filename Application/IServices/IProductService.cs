@@ -10,7 +10,6 @@ namespace WebApi_With_SQL_Server.Application.IServices
         Task<ProductDto?> UpdateAsync(int id, ProductDto dto);
         Task<bool> DeleteAsync(int id);
 
-        // 🆕 Thêm hàm mới cho Version 2 (Search + Paging)
         Task<object> GetPagedAsync(string? search, int page, int pageSize);
     }
 }
