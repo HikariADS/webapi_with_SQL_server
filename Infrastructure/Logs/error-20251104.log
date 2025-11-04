@@ -68,3 +68,34 @@ FROM [Products] AS [p]
 2025-11-04 11:36:31.173 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5170/favicon.ico - null null
 2025-11-04 11:36:31.176 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5170/favicon.ico - 404 0 null 3.0422ms
 2025-11-04 11:36:31.179 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5170/favicon.ico, Response status code: 404
+2025-11-04 15:09:38.959 +07:00 [INF] Application is shutting down...
+2025-11-04 15:17:11.075 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-04 15:17:11.247 +07:00 [INF] Executed DbCommand (86ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-11-04 15:17:11.482 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-04 15:17:11.591 +07:00 [INF] Now listening on: http://localhost:5170
+2025-11-04 15:17:11.593 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 15:17:11.593 +07:00 [INF] Hosting environment: Development
+2025-11-04 15:17:11.594 +07:00 [INF] Content root path: C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server
+2025-11-04 15:17:29.441 +07:00 [INF] Application is shutting down...

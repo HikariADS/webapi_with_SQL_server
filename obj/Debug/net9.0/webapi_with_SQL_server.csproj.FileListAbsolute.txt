@@ -370,3 +370,10 @@ C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server\obj\Debu
 C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server\obj\Debug\net9.0\webapi_with_SQL_server.pdb
 C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server\obj\Debug\net9.0\webapi_with_SQL_server.genruntimeconfig.cache
 C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server\obj\Debug\net9.0\ref\webapi_with_SQL_server.dll
+C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server\obj\Debug\net9.0\compressed\kgxk9tyswo-mg2y0inuib.gz
+C:\Users\bebiu\OneDrive\Desktop\Demo-spring-boot\webapi_with_SQL_server\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
